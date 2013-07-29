@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:server" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:server" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:server">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+      <xsd:complexType name="Aisles">
+        <xsd:all>
+          <xsd:element name="aisle_id" type="xsd:int" />
+          <xsd:element name="aisle_description" type="xsd:string" />
+          <xsd:element name="aisle_number" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="AislesArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:Aisles[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="Stock">
+        <xsd:all>
+          <xsd:element name="stocktake_id" type="xsd:int" />
+          <xsd:element name="time_start" type="xsd:string" />
+          <xsd:element name="time_finished" type="xsd:string" />
+          <xsd:element name="user_name" type="xsd:string" />
+          <xsd:element name="upload_status" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="StockItems">
+        <xsd:all>
+          <xsd:element name="stocktake_id" type="xsd:int" />
+          <xsd:element name="aisle_id" type="xsd:int" />
+          <xsd:element name="aisle_number" type="xsd:string" />
+          <xsd:element name="tag_id" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="StockItemsArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:StockItems[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="loginRequest">
+    <wsdl:part name="username" type="xsd:string" />
+    <wsdl:part name="password" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="loginResponse">
+    <wsdl:part name="return" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="GetAllAislesRequest" />
+  <wsdl:message name="GetAllAislesResponse">
+    <wsdl:part name="return" type="tns:AislesArray" />
+  </wsdl:message>
+  <wsdl:message name="InsertStockCountRequest">
+    <wsdl:part name="StockItems" type="tns:StockItemsArray" />
+    <wsdl:part name="Stock" type="tns:Stock" />
+  </wsdl:message>
+  <wsdl:message name="InsertStockCountResponse">
+    <wsdl:part name="return" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:portType name="serverPortType">
+    <wsdl:operation name="login">
+      <documentation>Check user login</documentation>
+      <wsdl:input message="tns:loginRequest" />
+      <wsdl:output message="tns:loginResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAisles">
+      <documentation>Return all products</documentation>
+      <wsdl:input message="tns:GetAllAislesRequest" />
+      <wsdl:output message="tns:GetAllAislesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertStockCount">
+      <documentation>Insert stock take data</documentation>
+      <wsdl:input message="tns:InsertStockCountRequest" />
+      <wsdl:output message="tns:InsertStockCountResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="serverBinding" type="tns:serverPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="login">
+      <soap:operation soapAction="urn:server#loginServer" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:server" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:server" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAisles">
+      <soap:operation soapAction="urn:server#productAllServer" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:server" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:server" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertStockCount">
+      <soap:operation soapAction="urn:server#insertStockServer" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:server" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:server" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="server">
+    <wsdl:port name="serverPort" binding="tns:serverBinding">
+      <soap:address location="http://sachith.sexyi.am/srs/ws/srswebservice.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

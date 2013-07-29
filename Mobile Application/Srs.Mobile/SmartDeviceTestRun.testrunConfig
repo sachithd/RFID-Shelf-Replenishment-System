@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRunConfiguration xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2006" id="92827529-8ba9-4b8d-99c8-076e3f0ddfb3" name="Local SmartDevices Test Run">
+	<Description>This is a default test run configuration for a local SmartDevice test run.</Description>
+	<Timeouts testTimeout="1800000"/>
+	<Hosts type="Smart Device">
+		<DeviceHostRunConfigData name="Smart Device" deviceId="b2c48bd2-963d-4549-9169-1fa021dce484d6518ffb-710f-11d3-99f2-00105a0df099" deviceName="Windows Mobile 6 Professional Device" platformId="b2c48bd2-963d-4549-9169-1fa021dce484" platformName="Windows Mobile 6 Professional SDK" uiPlatformId="b2c48bd2-963d-4549-9169-1fa021dce484"/>
+	</Hosts>
+</TestRunConfiguration>

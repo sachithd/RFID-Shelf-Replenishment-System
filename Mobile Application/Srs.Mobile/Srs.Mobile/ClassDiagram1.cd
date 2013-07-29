@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Srs.Mobile.Common.ConfigurationSettings">
+    <Position X="0.5" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Common\ConfigurationSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Srs.Mobile.Common.Logger">
+    <Position X="10.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Logger.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_localStore" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Srs.Mobile.Common.Reader">
+    <Position X="0.5" Y="7.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAEAAAAACAAAQAAQAgAQAAAAACACAAAgAAAAA=</HashCode>
+      <FileName>Common\Reader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Srs.Mobile.Common.Users">
+    <Position X="2.75" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAQAAAAAAAACAQIAAAEAAAA=</HashCode>
+      <FileName>Common\Users.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Srs.Mobile.Common.WebServices">
+    <Position X="3.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAIAABAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Common\WebServices.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Srs.Mobile.Data.LocalStore">
+    <Position X="9.5" Y="1" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAABQA=</HashCode>
+      <FileName>Data\LocalStore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Srs.Mobile.Program">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Srs.Mobile.UI.FormAisle">
+    <Position X="7" Y="8.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAgQwAAIAKQAYAAAAACAgJCCIAAIEABEAACAAAgBAAA=</HashCode>
+      <FileName>UI\FormAisle.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_localStore" />
+      <Field Name="_logger" />
+      <Field Name="_scanForm" />
+      <Field Name="_webService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Srs.Mobile.UI.FormHistory">
+    <Position X="13" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>ACgAQQAAACBAAIAQwAKAAAACMAAgUBAIAoyAgAAIAAA=</HashCode>
+      <FileName>UI\FormHistory.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_localStore" />
+      <Field Name="_logger" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Srs.Mobile.UI.FormLogin">
+    <Position X="2.75" Y="4" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAgABAAAASAAABEAAACAAEACIAAIGIAAABAAAABAAAA=</HashCode>
+      <FileName>UI\FormLogin.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_logger" />
+      <Field Name="_user" />
+      <Field Name="_webService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Srs.Mobile.UI.FormMain">
+    <Position X="0.5" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAECAAABAAAACAAAACACAAGAAAAAAAAABBAAA=</HashCode>
+      <FileName>UI\FormMain.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Srs.Mobile.UI.FormMenu">
+    <Position X="5.75" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAgBAQAAACAAAIAAAAiAgQACIAAAFIAAIAAkACAQBAQ=</HashCode>
+      <FileName>UI\FormMenu.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_localStore" />
+      <Field Name="_logger" />
+      <Field Name="_user" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Srs.Mobile.UI.FormUncompleted">
+    <Position X="16" Y="6.25" Width="2" />
+    <AssociationLine Name="_localStore" Type="Srs.Mobile.Data.LocalStore" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="16.938" Y="6.25" />
+        <Point X="16.938" Y="1.913" />
+        <Point X="11.25" Y="1.913" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>ACgAAQAAACAAAJAAAACAAIACIAAIEhBCAgwAAAAAAAA=</HashCode>
+      <FileName>UI\FormResumeStock.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_localStore" />
+      <Field Name="_logger" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Srs.Mobile.UI.FormTagScan">
+    <Position X="9.75" Y="8" Width="2" />
+    <NestedTypes>
+      <Delegate Name="Srs.Mobile.UI.FormTagScan.DisplayAutoOutputHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>UI\FormTagScan.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="Srs.Mobile.UI.FormTagScan.DisplayOutputHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>UI\FormTagScan.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>ADkQUAIMYyCEAACAIACAiJAiIyAmMCFAAAARABCAAhA=</HashCode>
+      <FileName>UI\FormTagScan.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_localStore" />
+      <Field Name="_logger" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
